@@ -1,0 +1,20 @@
+<html>
+    <head>
+    <title>Project</title>
+    </head>
+    <body>
+        <navbar>
+            <a href="{{url_for('index')}}">Home</a>
+            <a href="{{url_for('upload_image')}}">Upload Image</a>
+            <a href="{{ url_for('all_effects') }}">All Effects</a>       
+            <a href="{{ url_for('video1') }}">Stream Video</a>
+            <a href="{{ url_for('cartoonize') }}">Cartoonize Video</a>
+            <a href="{{url_for('oil_painting1')}}">Oil Painting</a>
+            <a href="{{url_for('black_and_white_sketch1')}}">Black_and_white_sketch</a>
+            <a href="#">About Us</a>
+        </navbar>
+        <br>
+        {% block content %} {% endblock %}
+    </body>
+    </html>
+
