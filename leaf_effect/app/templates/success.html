@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="referrer" content="no-referrer" />
-    <meta charset="UTF-8">
-    <title>Success</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1>Flask文件上传</h1>
+    <form action="success" method='post' enctype='multipart/form-data' >
+        <input type="file" name="file">
+        <i>请输入文件名：</i>
+        <input type="text" class="txt_input" name="name"  value="文件名" style="margin-top:10px;"/>
+        <input type="submit" value="上传">
+    </form>
+</div>
+
 <p>upload image successfully</p>
 <p>filename:<b>{{name}}</b></p>
    <div class="container">
     <div class="contContent">
-        <img src="{{ user_image }}" alt="原水稻叶片图">
-        <img src="./6.jpg" alt="原水稻叶片图"/>
-        <img REFERRER="NO-REFERRER" src="/Users/liuzihao/Documents/gitrepository/leaf_effect/app/templates/6.jpg" />
-        <img src="/IMG_8150.JPG" />
-        <img src="/i/eg_chinarose.jpg" />
+        <h1>{{userinput}}！</h1>
+        <img src="{{ url_for('static', filename= './images/test.jpg',_t=val1) }}" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
     </div>
     </div>
-</body>
-</html>
+{% endblock %}

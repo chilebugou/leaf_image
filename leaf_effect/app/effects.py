@@ -72,14 +72,14 @@ class effects_lib (object):
         frame_status, frame = self.video.read()
         #modify frame here
         img_color =  frame
-        # downsample image using Gaussian pyramid
+        # downsample images using Gaussian pyramid
         for _ in range(num_down):
             img_color = cv2.pyrDown(img_color)
         # repeatedly apply small bilateral filter instead of
         # applying one large filter
         for _ in range(num_bilateral):
             img_color = cv2.bilateralFilter(img_color, d=9,sigmaColor=9,sigmaSpace=7)
-        # upsample image to original size
+        # upsample images to original size
         for _ in range(num_down):
             img_color = cv2.pyrUp(img_color)
 
@@ -94,7 +94,7 @@ class effects_lib (object):
                                         blockSize=9,
                                         C=2)
                             
-        # convert back to color, bit-AND with color image
+        # convert back to color, bit-AND with color images
         img_edge = cv2.cvtColor(img_edge, cv2.COLOR_GRAY2RGB)
         frame = cv2.bitwise_and(img_color, img_edge)
         frame = cv2.resize(frame,None, fx = self.ds_factor, fy = self.ds_factor, interpolation = cv2.INTER_AREA)
