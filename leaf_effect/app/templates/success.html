@@ -2,21 +2,55 @@
 
 {% block content %}
 <div>
-    <h1>Flask文件上传</h1>
+    <h1>轻上传水稻叶片图片</h1>
     <form action="success" method='post' enctype='multipart/form-data' >
         <input type="file" name="file">
         <i>请输入文件名：</i>
         <input type="text" class="txt_input" name="name"  value="文件名" style="margin-top:10px;"/>
-        <input type="submit" value="上传">
+        <input type="submit" value="处理">
     </form>
 </div>
 
 <p>upload image successfully</p>
 <p>filename:<b>{{name}}</b></p>
-   <div class="container">
-    <div class="contContent">
-        <h1>{{userinput}}！</h1>
-        <img src="{{ url_for('static', filename= './images/test.jpg',_t=val1) }}" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+<!--   <div class="container">
+       <div class="contContent">
+        <div class="test1">
+            <h1>{{userinput}}</h1>
+            <img src="{{ url_for('static', filename= './images/test1.jpg',_t=val1) }}" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+        </div>
+        <div class="test2">
+            <h1>{{userinput}}</h1>
+            <img src="{{ url_for('static', filename= './images/test2.jpg',_t=val1) }}" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+        </div>
+        <div class="test3">
+            <h1>{{userinput}}</h1>
+            <img src="{{ url_for('static', filename= './images/test3.jpg',_t=val1) }}" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+        </div>
+       </div>
+       </div>-->
+        <style type="text/css">
+            .box{ background:skyblue; }
+            .kid{ width: 400px;height: 400px; float:left;}
+            .kid1{ background: honeydew; }
+            .kid2{ background: honeydew; }
+            .wrap{ width: 2000px; height: 1000px; background: honeydew; color: white; }
+        </style>
+<body>
+    <div class="box">
+        <div class="kid kid1">
+            <h1>{{userinput}}</h1>
+            <img src="{{ url_for('static', filename= './images/test1.jpg',_t=val1) }}" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+        </div>
+	    <div class="kid kid2">
+            <h1>{{userinput}}</h1>
+            <img src="{{ url_for('static', filename= './images/test2.jpg',_t=val1) }}" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+        </div>
+        <div class="kid kid1">
+            <h1>{{userinput}}</h1>
+            <img src="{{ url_for('static', filename= './images/test3.jpg',_t=val1) }}" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+        </div>
     </div>
-    </div>
+    <div class="wrap">其他部分</div>
+</body>
 {% endblock %}

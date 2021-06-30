@@ -2,6 +2,7 @@ import os
 import time
 from datetime import timedelta
 
+import numpy as np
 from werkzeug.utils import secure_filename
 
 from app import app
@@ -145,7 +146,23 @@ def success():
 
         # 使用Opencv转换一下图片格式和名称
         img = cv2.imread(upload_path)
-        cv2.imwrite(os.path.join(basepath, 'static/images', 'test.jpg'), img)
+        HSV_img = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+        #cv2.waitKey()
+        '''
+        cv2.inRange()
+        参数：
+        img: 图像对象 / array
+        lowerb: 低边界array，  如lower_blue = np.array([110, 50, 50])
+        upperb：高边界array， 如
+        upper_blue = np.array([130, 255, 255])
+        '''
+        lowerb=np.array([0,0,0])
+        upperb=np.array([255,42,255])
+        mask = cv2.inRange(HSV_img, lowerb, upperb)
+        cv2.imwrite(os.path.join(basepath, 'static/images', 'test1.jpg'), img)
+        cv2.imwrite(os.path.join(basepath, 'static/images', 'test2.jpg'), HSV_img)
+        cv2.imwrite(os.path.join(basepath, 'static/images', 'test3.jpg'), mask)
+
 
 
 
